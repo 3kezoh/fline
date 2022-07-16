@@ -48,7 +48,8 @@
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "fline:build",
-        "hmr": true
+        "hmr": true,
+        "proxyConfig": "apps/fline/proxy.conf.json"
       },
       "configurations": {
         "development": {

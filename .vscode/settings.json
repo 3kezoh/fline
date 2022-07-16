@@ -1,3 +1,4 @@
 {
-  "conventionalCommits.scopes": ["fline", "api"]
+  "conventionalCommits.scopes": ["fline", "api", "sequelize"],
+  "cSpell.words": ["fline"]
 }

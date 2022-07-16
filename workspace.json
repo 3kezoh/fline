@@ -4,6 +4,7 @@
   "projects": {
     "api": "apps/api",
     "fline": "apps/fline",
-    "fline-e2e": "apps/fline-e2e"
+    "fline-e2e": "apps/fline-e2e",
+    "sequelize": "libs/sequelize"
   }
 }

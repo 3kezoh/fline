@@ -14,7 +14,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@fline/sequelize": ["libs/sequelize/src/index.js"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

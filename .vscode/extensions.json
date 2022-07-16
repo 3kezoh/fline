@@ -2,6 +2,8 @@
   "recommendations": [
     "nrwl.angular-console",
     "esbenp.prettier-vscode",
-    "vivaxy.vscode-conventional-commits"
+    "vivaxy.vscode-conventional-commits",
+    "firsttris.vscode-jest-runner",
+    "dbaeumer.vscode-eslint"
   ]
 }

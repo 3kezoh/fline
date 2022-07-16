@@ -10,7 +10,8 @@
         "outputPath": "dist/apps/api",
         "main": "apps/api/src/main.js",
         "tsConfig": "apps/api/tsconfig.app.json",
-        "assets": ["apps/api/src/assets"]
+        "assets": ["apps/api/src/assets"],
+        "generatePackageJson": true
       },
       "configurations": {
         "production": {
@@ -24,6 +25,16 @@
             }
           ]
         }
+      }
+    },
+    "deploy": {
+      "builder": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          "nx build api",
+          "docker build --file ./apps/api/Dockerfile . --tag fline/api:latest"
+        ],
+        "parallel": false
       }
     },
     "serve": {

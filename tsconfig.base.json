@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@fline/base": ["libs/base/src/index.js"],
       "@fline/sequelize": ["libs/sequelize/src/index.js"]
     }
   },

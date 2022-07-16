@@ -3,6 +3,7 @@
   "version": 2,
   "projects": {
     "api": "apps/api",
+    "base": "libs/base",
     "fline": "apps/fline",
     "fline-e2e": "apps/fline-e2e",
     "sequelize": "libs/sequelize"

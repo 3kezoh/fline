@@ -25,7 +25,7 @@ export class Service {
    * @param {string} id
    * @returns
    */
-  async findOne(id) {
+  async findByPk(id) {
     return this.model.findByPk(id);
   }
 

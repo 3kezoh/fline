@@ -43,3 +43,6 @@ Thumbs.db
 
 # docker volumes
 apps/api/data
+
+# eslint
+.eslintcache

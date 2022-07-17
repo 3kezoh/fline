@@ -6,6 +6,7 @@
     "base": "libs/base",
     "fline": "apps/fline",
     "fline-e2e": "apps/fline-e2e",
-    "sequelize": "libs/sequelize"
+    "sequelize": "libs/sequelize",
+    "user": "libs/user"
   }
 }

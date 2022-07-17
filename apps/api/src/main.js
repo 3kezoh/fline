@@ -5,6 +5,7 @@
 
 import * as express from 'express';
 import { sequelize } from '@fline/sequelize';
+import {} from '@fline/user';
 
 // TODO: connection should be done in a separate file
 sequelize

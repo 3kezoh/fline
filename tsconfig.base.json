@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@fline/base": ["libs/base/src/index.js"],
-      "@fline/sequelize": ["libs/sequelize/src/index.js"]
+      "@fline/sequelize": ["libs/sequelize/src/index.js"],
+      "@fline/user": ["libs/user/src/index.js"]
     }
   },
   "exclude": ["node_modules", "tmp"]

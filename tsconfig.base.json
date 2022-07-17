@@ -20,6 +20,7 @@
       "@fline/mailer": ["libs/mailer/src/index.js"],
       "@fline/security": ["libs/security/src/index.js"],
       "@fline/sequelize": ["libs/sequelize/src/index.js"],
+      "@fline/ui": ["libs/ui/src/index.js"],
       "@fline/user": ["libs/user/src/index.js"],
       "@fline/verify-token": ["libs/verify-token/src/index.js"]
     }

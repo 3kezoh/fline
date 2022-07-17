@@ -10,6 +10,7 @@
     "mailer": "libs/mailer",
     "security": "libs/security",
     "sequelize": "libs/sequelize",
+    "ui": "libs/ui",
     "user": "libs/user",
     "verify-token": "libs/verify-token"
   }

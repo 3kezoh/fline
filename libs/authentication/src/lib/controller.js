@@ -8,6 +8,8 @@ import { VerifyTokenService } from '@fline/verify-token';
 const userService = new UserService();
 const verifyTokenService = new VerifyTokenService();
 
+// TODO extract to a separate file
+
 /**
  * @description Format a ValidationError to be used in the API
  * @param {ValidationError} validationError
@@ -33,11 +35,14 @@ export async function register(req, res, next) {
 
     const verifyToken = await verifyTokenService.create({ userId: user.id });
 
-    sendMail({
+    // TODO change hardcoded url
+
+    await sendMail({
       to: user.email,
       subject: 'Welcome to Fline',
       text:
-        'To verify your account, please click this link : ' + verifyToken.value,
+        'To verify your account, please click this link : http://localhost:4200/verify?token=' +
+        verifyToken.value,
     });
 
     return res.status(201).json(user);
@@ -69,6 +74,10 @@ export async function login(req, res, next) {
 
     if (!isPasswordValid) {
       return res.status(401).json({ password: 'Invalid password' });
+    }
+
+    if (!user.isVerified) {
+      return res.status(401).json({ email: 'User not verified' });
     }
 
     const accessToken = signToken(user.toJSON());

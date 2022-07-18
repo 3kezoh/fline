@@ -7,6 +7,7 @@
     "base": "libs/base",
     "fline": "apps/fline",
     "fline-e2e": "apps/fline-e2e",
+    "hooks": "libs/hooks",
     "mailer": "libs/mailer",
     "security": "libs/security",
     "sequelize": "libs/sequelize",

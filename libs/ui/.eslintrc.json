@@ -1,5 +1,6 @@
 {
   "extends": ["plugin:@nrwl/nx/react", "../../.eslintrc.json"],
+  "plugins": ["sort-destructure-keys"],
   "ignorePatterns": ["!**/*"],
   "overrides": [
     {
@@ -12,7 +13,21 @@
     },
     {
       "files": ["*.js", "*.jsx"],
-      "rules": {}
+      "rules": {
+        "quotes": [
+          "warn",
+          "single",
+          { "avoidEscape": true, "allowTemplateLiterals": false }
+        ],
+        "react/jsx-fragments": ["warn", "element"],
+        "react/jsx-sort-props": ["warn", { "reservedFirst": true }],
+        "react/prop-types": "warn",
+        "react/sort-prop-types": ["warn", { "sortShapeProp": true }],
+        "sort-destructure-keys/sort-destructure-keys": [
+          "warn",
+          { "caseSensitive": false }
+        ]
+      }
     }
   ]
 }

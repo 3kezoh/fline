@@ -7,6 +7,7 @@ import * as express from 'express';
 import { sequelize } from '@fline/sequelize';
 import { authenticationRouter } from '@fline/authentication';
 import { authenticate, checkUserIsVerified } from '@fline/security';
+import * as cors from 'cors';
 
 // TODO: connection should be done in a separate file
 sequelize
@@ -31,6 +32,8 @@ sequelize
   });
 
 const app = express();
+
+app.use(cors({ origin: 'http://localhost:4200' }));
 
 app.use(express.json());
 

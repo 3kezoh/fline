@@ -14,7 +14,17 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@fline/authentication": ["libs/authentication/src/index.js"],
+      "@fline/base": ["libs/base/src/index.js"],
+      "@fline/hooks": ["libs/hooks/src/index.js"],
+      "@fline/mailer": ["libs/mailer/src/index.js"],
+      "@fline/security": ["libs/security/src/index.js"],
+      "@fline/sequelize": ["libs/sequelize/src/index.js"],
+      "@fline/ui": ["libs/ui/src/index.js"],
+      "@fline/user": ["libs/user/src/index.js"],
+      "@fline/verify-token": ["libs/verify-token/src/index.js"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

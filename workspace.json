@@ -3,7 +3,16 @@
   "version": 2,
   "projects": {
     "api": "apps/api",
+    "authentication": "libs/authentication",
+    "base": "libs/base",
     "fline": "apps/fline",
-    "fline-e2e": "apps/fline-e2e"
+    "fline-e2e": "apps/fline-e2e",
+    "hooks": "libs/hooks",
+    "mailer": "libs/mailer",
+    "security": "libs/security",
+    "sequelize": "libs/sequelize",
+    "ui": "libs/ui",
+    "user": "libs/user",
+    "verify-token": "libs/verify-token"
   }
 }

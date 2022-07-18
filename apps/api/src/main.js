@@ -8,6 +8,7 @@ import { sequelize } from '@fline/sequelize';
 import { authenticationRouter } from '@fline/authentication';
 import { authenticate, checkUserIsVerified } from '@fline/security';
 import * as cors from 'cors';
+import * as path from 'path';
 
 // TODO: connection should be done in a separate file
 sequelize
@@ -35,6 +36,18 @@ const app = express();
 
 app.use(cors({ origin: 'http://localhost:4200' }));
 
+const FLINE_BUILD_PATH = path.join(
+  __dirname,
+  '..',
+  '..',
+  '..',
+  'dist',
+  'apps',
+  'fline'
+);
+
+app.use(express.static(FLINE_BUILD_PATH));
+
 app.use(express.json());
 
 app.get('/api', (req, res) => {
@@ -51,8 +64,14 @@ app.get('/verified', authenticate, checkUserIsVerified, (req, res) => {
   res.send({ message: 'You are verified' });
 });
 
+app.get('*', (_req, res) => {
+  res.sendFile(path.join(FLINE_BUILD_PATH, 'index.html'));
+});
+
 const port = process.env.port || 3333;
+
 const server = app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}/api`);
 });
+
 server.on('error', console.error);

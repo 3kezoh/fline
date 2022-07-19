@@ -3,4 +3,16 @@ import { Sequelize } from 'sequelize';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { pg } from 'pg';
 
-export const sequelize = new Sequelize(process.env['POSTGRES_HOST']);
+const isProduction = process.env.NODE_ENV === 'production';
+
+export const sequelize = new Sequelize(process.env.DATABASE_URL, {
+  dialect: 'postgres',
+  ...(isProduction && {
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,
+      },
+    },
+  }),
+});

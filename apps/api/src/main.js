@@ -53,19 +53,19 @@ app.use(express.static(FLINE_BUILD_PATH));
 
 app.use(express.json());
 
-app.get('/api', (req, res) => {
-  res.send({ message: 'Welcome to api!' });
-});
+const router = express.Router();
 
-app.use(authenticationRouter);
+router.use(authenticationRouter);
 
-app.get('/authenticated', authenticate, (req, res) => {
+router.get('/authenticated', authenticate, (req, res) => {
   res.send({ message: 'You are authenticated' });
 });
 
-app.get('/verified', authenticate, checkUserIsVerified, (req, res) => {
+router.get('/verified', authenticate, checkUserIsVerified, (req, res) => {
   res.send({ message: 'You are verified' });
 });
+
+app.use('/api', router);
 
 app.get('*', (_req, res) => {
   res.sendFile(path.join(FLINE_BUILD_PATH, 'index.html'));

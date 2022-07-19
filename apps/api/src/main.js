@@ -9,6 +9,9 @@ import { authenticationRouter } from '@fline/authentication';
 import { authenticate, checkUserIsVerified } from '@fline/security';
 import * as cors from 'cors';
 import * as path from 'path';
+import { environment } from './environments/environment';
+
+const { origin } = environment;
 
 // TODO: connection should be done in a separate file
 sequelize
@@ -34,7 +37,7 @@ sequelize
 
 const app = express();
 
-app.use(cors({ origin: 'http://localhost:4200' }));
+app.use(cors({ origin }));
 
 const FLINE_BUILD_PATH = path.join(
   __dirname,

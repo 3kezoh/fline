@@ -2,6 +2,12 @@ import { useCallback } from 'react';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { useFetch, State } from './use-fetch';
 
+// ! This should not be here, but it is here for now.
+const apiUrl = {
+  production: 'https://ekezoh-fline.herokuapp.com',
+  development: 'http://localhost:3333',
+};
+
 /**
  * @callback requestApi The function to request the fline API.
  * @param {string} pathname The pathname to request. (e.g. /login)
@@ -24,7 +30,7 @@ export function useApi() {
 
   const requestApi = useCallback(
     (pathname, options) => {
-      const url = new URL(pathname, process.env.API_URL);
+      const url = new URL(pathname, apiUrl[process.env.NODE_ENV]);
 
       return request(url, {
         ...options,

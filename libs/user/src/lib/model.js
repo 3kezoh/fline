@@ -2,6 +2,7 @@ import { DataTypes, Model } from 'sequelize';
 import { sequelize } from '@fline/sequelize';
 import { hash, genSalt } from 'bcryptjs';
 import { VerifyToken } from '@fline/verify-token';
+import { UserFriends } from '@fline/user-friends';
 
 export class User extends Model {
   toJSON() {
@@ -67,6 +68,18 @@ User.init(
 );
 
 User.hasOne(VerifyToken, { foreignKey: 'userId' });
+
+User.belongsToMany(User, {
+  as: 'user',
+  foreignKey: 'userId',
+  through: UserFriends,
+});
+
+User.belongsToMany(User, {
+  as: 'friend',
+  foreignKey: 'friendId',
+  through: UserFriends,
+});
 
 /**
  * @description Hash the user password

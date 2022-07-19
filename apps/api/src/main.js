@@ -6,8 +6,12 @@
 import * as express from 'express';
 import { sequelize } from '@fline/sequelize';
 import { authenticationRouter } from '@fline/authentication';
+import { friendRouter } from '@fline/friend';
 import { authenticate, checkUserIsVerified } from '@fline/security';
 import * as cors from 'cors';
+import { UserFriends } from '@fline/user-friends';
+
+console.log('UserFriends: ', UserFriends);
 
 // TODO: connection should be done in a separate file
 sequelize
@@ -18,7 +22,7 @@ sequelize
     // TODO: sync should done be in a separate file
     if (process.env.NODE_ENV === 'development') {
       sequelize
-        .sync({ alter: true })
+        .sync({ force: true })
         .then(() => {
           console.log('Database synced');
         })
@@ -32,6 +36,8 @@ sequelize
   });
 
 const app = express();
+
+app.use(friendRouter);
 
 app.use(cors({ origin: 'http://localhost:4200' }));
 

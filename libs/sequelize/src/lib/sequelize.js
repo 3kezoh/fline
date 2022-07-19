@@ -3,4 +3,6 @@ import { Sequelize } from 'sequelize';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { pg } from 'pg';
 
-export const sequelize = new Sequelize(process.env['POSTGRES_HOST']);
+export const sequelize = new Sequelize(process.env['POSTGRES_HOST'], {
+  dialect: 'postgres',
+});

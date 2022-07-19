@@ -30,7 +30,7 @@ export function useApi() {
 
   const requestApi = useCallback(
     (pathname, options) => {
-      const url = new URL('/api' + pathname, apiUrl[process.env.NODE_ENV]);
+      const url = new URL('/api' + pathname, apiUrl[process.env.APP_ENV]);
 
       return request(url, {
         ...options,

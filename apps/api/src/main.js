@@ -20,7 +20,7 @@ sequelize
     console.log('Connection to postgresql successful');
 
     // TODO: sync should done be in a separate file
-    if (process.env.NODE_ENV === 'development') {
+    if (process.env.APP_ENV === 'development') {
       sequelize
         .sync({ alter: true })
         .then(() => {

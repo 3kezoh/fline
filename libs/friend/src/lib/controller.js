@@ -14,10 +14,7 @@ export async function getFriend(req, res, next) {
 
 export async function addFriend(req, res, next) {
   try {
-    const friend = await userFriendService.addFriend(
-      req.user.id,
-      req.body.friendId
-    );
+    const friend = await userFriendService.addFriend(req.user.id, req.body.friendId);
 
     res.json(friend);
   } catch (error) {
@@ -27,10 +24,7 @@ export async function addFriend(req, res, next) {
 
 export async function blockFriend(req, res, next) {
   try {
-    const friend = await userFriendService.blockFriend(
-      req.user.id,
-      req.body.friendId
-    );
+    const friend = await userFriendService.blockFriend(req.user.id, req.body.friendId);
 
     res.json(friend);
   } catch (error) {
@@ -40,10 +34,7 @@ export async function blockFriend(req, res, next) {
 
 export async function unblockFriend(req, res, next) {
   try {
-    const friend = await userFriendService.unblockFriend(
-      req.user.id,
-      req.body.friendId
-    );
+    const friend = await userFriendService.unblockFriend(req.user.id, req.body.friendId);
 
     res.json(friend);
   } catch (error) {
@@ -53,10 +44,7 @@ export async function unblockFriend(req, res, next) {
 
 export async function acceptPendingFriend(req, res, next) {
   try {
-    const friend = await userFriendService.acceptPendingFriend(
-      req.user.id,
-      req.body.friendId
-    );
+    const friend = await userFriendService.acceptPendingFriend(req.user.id, req.body.friendId);
 
     res.json(friend);
   } catch (error) {
@@ -66,10 +54,7 @@ export async function acceptPendingFriend(req, res, next) {
 
 export async function rejectFriend(req, res, next) {
   try {
-    const friend = await userFriendService.rejectFriend(
-      req.user.id,
-      req.body.friendId
-    );
+    const friend = await userFriendService.rejectFriend(req.user.id, req.body.friendId);
 
     res.json(friend);
   } catch (error) {
@@ -79,10 +64,7 @@ export async function rejectFriend(req, res, next) {
 
 export async function removeFriend(req, res, next) {
   try {
-    const friend = userFriendService.removeFriend(
-      req.user.id,
-      req.body.friendId
-    );
+    const friend = await userFriendService.removeFriend(req.user.id, req.body.friendId);
 
     res.json(friend);
   } catch (error) {

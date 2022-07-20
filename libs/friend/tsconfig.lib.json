@@ -13,5 +13,5 @@
     "**/*.spec.js",
     "**/*.test.js"
   ],
-  "include": ["**/*.ts", "**/*.js"]
+  "include": ["**/*.ts", "**/*.js", "../user-friends/src/lib/service.js"]
 }

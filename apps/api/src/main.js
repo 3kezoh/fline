@@ -51,6 +51,7 @@ app.get('/authenticated', authenticate, (req, res) => {
 app.get('/verified', authenticate, checkUserIsVerified, (req, res) => {
   res.send({ message: 'You are verified' });
 });
+
 app.use(friendRouter);
 
 const port = process.env.port || 3333;

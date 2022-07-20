@@ -9,6 +9,7 @@ import { authenticationRouter } from '@fline/authentication';
 import { friendRouter } from '@fline/friend';
 import { authenticate, checkUserIsVerified } from '@fline/security';
 import * as cors from 'cors';
+import { userRouter } from '@fline/user';
 
 // TODO: connection should be done in a separate file
 sequelize
@@ -53,6 +54,7 @@ app.get('/verified', authenticate, checkUserIsVerified, (req, res) => {
 });
 
 app.use(friendRouter);
+app.use(userRouter);
 
 const port = process.env.port || 3333;
 const server = app.listen(port, () => {

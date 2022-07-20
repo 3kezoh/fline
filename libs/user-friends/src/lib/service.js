@@ -1,4 +1,5 @@
 import { Service } from '@fline/base';
+import { User } from '@fline/user';
 import { UserFriend } from '@fline/user-friends';
 
 export class UserFriendService extends Service {

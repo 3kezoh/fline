@@ -1,9 +1,9 @@
 import { DataTypes, Model } from 'sequelize';
 import { sequelize } from '@fline/sequelize';
 
-export class UserFriends extends Model {}
+export class UserFriend extends Model {}
 
-UserFriends.init(
+UserFriend.init(
   {
     isPending: {
       type: DataTypes.BOOLEAN,

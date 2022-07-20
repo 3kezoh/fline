@@ -9,9 +9,6 @@ import { authenticationRouter } from '@fline/authentication';
 import { friendRouter } from '@fline/friend';
 import { authenticate, checkUserIsVerified } from '@fline/security';
 import * as cors from 'cors';
-import { UserFriends } from '@fline/user-friends';
-
-console.log('UserFriends: ', UserFriends);
 
 // TODO: connection should be done in a separate file
 sequelize
@@ -22,7 +19,7 @@ sequelize
     // TODO: sync should done be in a separate file
     if (process.env.NODE_ENV === 'development') {
       sequelize
-        .sync({ force: true })
+        .sync({ force: false })
         .then(() => {
           console.log('Database synced');
         })
@@ -36,8 +33,6 @@ sequelize
   });
 
 const app = express();
-
-app.use(friendRouter);
 
 app.use(cors({ origin: 'http://localhost:4200' }));
 
@@ -56,6 +51,7 @@ app.get('/authenticated', authenticate, (req, res) => {
 app.get('/verified', authenticate, checkUserIsVerified, (req, res) => {
   res.send({ message: 'You are verified' });
 });
+app.use(friendRouter);
 
 const port = process.env.port || 3333;
 const server = app.listen(port, () => {

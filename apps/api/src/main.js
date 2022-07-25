@@ -6,6 +6,7 @@
 import * as express from 'express';
 import { sequelize } from '@fline/sequelize';
 import { authenticationRouter } from '@fline/authentication';
+import { chatRouter } from '@fline/chat';
 import { authenticate, checkUserIsVerified } from '@fline/security';
 import * as cors from 'cors';
 
@@ -18,7 +19,7 @@ sequelize
     // TODO: sync should done be in a separate file
     if (process.env.NODE_ENV === 'development') {
       sequelize
-        .sync({ alter: true })
+        .sync({ force: true })
         .then(() => {
           console.log('Database synced');
         })
@@ -55,4 +56,7 @@ const port = process.env.port || 3333;
 const server = app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}/api`);
 });
+
+app.use(chatRouter);
+
 server.on('error', console.error);

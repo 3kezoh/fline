@@ -5,6 +5,7 @@
     "api": "apps/api",
     "authentication": "libs/authentication",
     "base": "libs/base",
+    "chat": "libs/chat",
     "fline": "apps/fline",
     "fline-e2e": "apps/fline-e2e",
     "hooks": "libs/hooks",

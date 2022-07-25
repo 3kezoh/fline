@@ -6,7 +6,8 @@
     "base",
     "user",
     "ui",
-    "hooks"
+    "hooks",
+    "authentication"
   ],
   "cSpell.words": ["fline"]
 }

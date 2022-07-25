@@ -35,14 +35,16 @@ export async function register(req, res, next) {
 
     const verifyToken = await verifyTokenService.create({ userId: user.id });
 
-    // TODO change hardcoded url
+    const verifyTokenUrl = new URL('/verify', process.env.FLINE_URL);
+
+    verifyTokenUrl.searchParams.append('token', verifyToken.value);
 
     await sendMail({
       to: user.email,
       subject: 'Welcome to Fline',
       text:
-        'To verify your account, please click this link : http://localhost:4200/verify?token=' +
-        verifyToken.value,
+        'To verify your account, please click this link : ' +
+        verifyTokenUrl.href,
     });
 
     return res.status(201).json(user);

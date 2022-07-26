@@ -16,20 +16,17 @@ const { origin } = environment;
 // TODO: connection should be done in a separate file
 sequelize
   .authenticate()
-  .then(() => {
+  .then(async () => {
     console.log('Connection to postgresql successful');
 
     // TODO: sync should done be in a separate file
-    if (process.env.APP_ENV === 'development') {
-      sequelize
-        .sync({ alter: true })
-        .then(() => {
-          console.log('Database synced');
-        })
-        .catch((err) => {
-          console.error('Error syncing database', err);
-        });
-    }
+    // ! sync should not be used in production, but we need to do it at the moment.
+
+    await sequelize.sync({ alter: true }).catch((err) => {
+      console.error('Error syncing database', err);
+    });
+
+    console.log('Database synced');
   })
   .catch((err) => {
     console.error('Error connecting to postgresql', err);

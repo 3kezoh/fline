@@ -150,8 +150,7 @@ export async function resetPassword(req, res, next) {
     await sendMail({
       to: user.email,
       subject: 'Reset your password',
-      html: `<p>To change your password, please click <a href="${resetTokenURL.href}">here</a></p>
-      <p>It will expire in ${process.env.RESET_TOKEN_EXPIRATION_IN_MINUTES} minutes.</p>`,
+      html: `<p>To change your password, please click <a href="${resetTokenURL.href}">here</a></p>`,
     });
 
     return res.status(201).json({ message: 'Email sent' });

@@ -72,6 +72,11 @@ io.on('connection', (socket) => {
     console.log(`Oh ${socket.id} à rejoin la room ${data}.`);
   });
 
+  socket.on('send_message', (data) => {
+    socket.to(data.room).emit('receive_message', data);
+    console.log(data);
+  });
+
   socket.on('disconnect', () => {
     console.log(`Oh ${socket.id} a disparue dans les nuages.`);
   });

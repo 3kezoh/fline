@@ -26,36 +26,36 @@ export function JoinChat() {
 
   //const [username, setUserName] = useState('');
   const [room, setRoom] = useState('');
+  const [showChat, setShowChat] = useState(false);
 
   // Ajouter le user connecté à la condition de connexion à la room
   const joinRoom = () => {
     if (room !== '') {
       socket.emit('join_room', room);
+      setShowChat(true);
     }
   };
 
   return (
     <div>
-      <h3>Join A Chat</h3>
-
-      <form onSubmit={onSubmit}>
-        <Grid spacing={2}>
-          <Input
-            isRequired
-            label="RoomID"
-            name="roomID"
-            onChange={(event) => setRoom(event.target.value)}
-            type="text"
-            value={roomID}
-          />
-          <Button onClick={joinRoom} type="submit">
-            Rejoindre
-          </Button>
-          {error && <p>{JSON.stringify(error, null, 2)}</p>}
-        </Grid>
-      </form>
-
-      <Chat room={room} socket={socket} />
+      {!showChat ? (
+        <div className="joinChatContainer">
+          <h3>Join A Chat</h3>
+          <Grid spacing={2}>
+            <Input
+              isRequired
+              label="RoomID"
+              name="roomID"
+              onChange={(event) => setRoom(event.target.value)}
+              type="text"
+              value={roomID}
+            />
+            <Button onClick={joinRoom}>Rejoindre</Button>
+          </Grid>
+        </div>
+      ) : (
+        <Chat room={room} socket={socket} />
+      )}
     </div>
   );
 }

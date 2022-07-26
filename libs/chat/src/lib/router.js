@@ -5,3 +5,4 @@ import { chat } from './controller';
 export const chatRouter = Router();
 
 chatRouter.get('/chat', authenticate, chat);
+//chatRouter.get('/joinChat', authenticate, chat);

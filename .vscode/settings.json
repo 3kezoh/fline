@@ -5,7 +5,8 @@
     "sequelize",
     "base",
     "user",
-    "ui"
+    "ui",
+    "chat"
   ],
   "cSpell.words": ["fline"]
 }

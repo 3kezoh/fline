@@ -7,7 +7,8 @@
     "user",
     "ui",
     "hooks",
-    "authentication"
+    "authentication",
+    "reset-token"
   ],
   "cSpell.words": ["fline"]
 }

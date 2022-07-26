@@ -22,7 +22,10 @@ ResetToken.init(
     expiresAt: {
       type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: () => dayjs().add(1, 'day').toDate(),
+      defaultValue: () =>
+        dayjs()
+          .add(process.env.RESET_TOKEN_EXPIRATION_IN_MINUTES, 'minutes')
+          .toDate(),
     },
   },
   { sequelize, modelName: 'reset_token' }

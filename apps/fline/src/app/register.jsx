@@ -1,6 +1,5 @@
 import { useAuthentication, useForm } from '@fline/hooks';
 import { Button, Grid, Input } from '@fline/ui';
-import { Fragment } from 'react';
 
 const formInitialState = {
   email: '',

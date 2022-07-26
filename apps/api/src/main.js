@@ -9,6 +9,7 @@ import { authenticationRouter } from '@fline/authentication';
 import { chatRouter } from '@fline/chat';
 import { authenticate, checkUserIsVerified } from '@fline/security';
 import * as cors from 'cors';
+import { Server } from 'socket.io';
 
 // TODO: connection should be done in a separate file
 sequelize
@@ -19,7 +20,7 @@ sequelize
     // TODO: sync should done be in a separate file
     if (process.env.NODE_ENV === 'development') {
       sequelize
-        .sync({ force: true })
+        .sync({ alter: true })
         .then(() => {
           console.log('Database synced');
         })
@@ -58,5 +59,22 @@ const server = app.listen(port, () => {
 });
 
 app.use(chatRouter);
+
+const io = new Server(server, {
+  cors: { origin: 'http://localhost:4200', methods: ['GET,POST'] },
+});
+
+io.on('connection', (socket) => {
+  console.log(`Oh ${socket.id} est apparue dans la jungle.`);
+
+  socket.on('join_room', (data) => {
+    socket.join(data);
+    console.log(`Oh ${socket.id} à rejoin la room ${data}.`);
+  });
+
+  socket.on('disconnect', () => {
+    console.log(`Oh ${socket.id} a disparue dans les nuages.`);
+  });
+});
 
 server.on('error', console.error);

@@ -2,9 +2,13 @@
   "name": "fline",
   "version": "0.0.0",
   "license": "MIT",
+  "engines": {
+    "node": "16.16.0",
+    "npm": "8.11.0"
+  },
   "scripts": {
-    "start": "nx serve",
-    "build": "nx build",
+    "start": "node dist/apps/api/main.js",
+    "build": "npx nx run-many --target=build --projects=api,fline --parallel=true",
     "test": "nx test",
     "prepare": "husky install"
   },

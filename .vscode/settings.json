@@ -5,7 +5,9 @@
     "sequelize",
     "base",
     "user",
-    "ui"
+    "ui",
+    "hooks",
+    "authentication"
   ],
   "cSpell.words": ["fline"]
 }

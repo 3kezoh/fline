@@ -2,8 +2,6 @@ import { useCallback } from 'react';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { useFetch, State } from './use-fetch';
 
-// TODO remplace hardcoded url
-
 /**
  * @callback requestApi The function to request the fline API.
  * @param {string} pathname The pathname to request. (e.g. /login)
@@ -26,7 +24,7 @@ export function useApi() {
 
   const requestApi = useCallback(
     (pathname, options) => {
-      const url = new URL(pathname, 'http://localhost:3333');
+      const url = new URL('/api' + pathname, process.env.NX_FLINE_URL);
 
       return request(url, {
         ...options,

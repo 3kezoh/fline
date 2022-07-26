@@ -67,6 +67,7 @@
     "bcryptjs": "2.4.3",
     "core-js": "^3.6.5",
     "cors": "2.8.5",
+    "dayjs": "1.11.4",
     "express": "4.17.2",
     "jsonwebtoken": "^8.5.1",
     "pg": "8.7.3",

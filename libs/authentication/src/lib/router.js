@@ -1,9 +1,17 @@
 import { Router } from 'express';
-import { register, login, verify } from './controller';
+import {
+  register,
+  login,
+  verify,
+  resetPassword,
+  changePassword,
+} from './controller';
 
 export const authenticationRouter = Router();
 
 authenticationRouter
   .post('/register', register)
   .post('/login', login)
-  .get('/verify', verify);
+  .get('/verify', verify)
+  .post('/reset-password', resetPassword)
+  .post('/change-password', changePassword);

@@ -65,18 +65,47 @@ export function AuthenticationProvider({ children }) {
     [requestApi]
   );
 
+  /**
+   * Function to reset the user password.
+   */
+  const resetPassword = useCallback(
+    (body) => requestApi('/reset-password', { body }),
+    [requestApi]
+  );
+
+  /**
+   * Function to change the user password.
+   */
+  const changePassword = useCallback(
+    (body) => requestApi('/change-password', { body }),
+    [requestApi]
+  );
+
   const value = useMemo(
     () => ({
       abort,
+      changePassword,
       data,
       error,
       isLoading,
       login,
       logout,
       register,
+      resetPassword,
       verify,
     }),
-    [abort, data, error, isLoading, login, logout, register, verify]
+    [
+      abort,
+      changePassword,
+      data,
+      error,
+      isLoading,
+      login,
+      logout,
+      register,
+      resetPassword,
+      verify,
+    ]
   );
 
   return (
@@ -93,12 +122,14 @@ AuthenticationProvider.propTypes = {
 /**
  * @typedef {Object} AuthenticationContext
  * @property {Function} abort The function to abort the request.
+ * @property {Function} changePassword The function to change the password.
  * @property {Object} data The data returned by the request.
  * @property {*} error The error returned by the request.
  * @property {boolean} isLoading Whether the request is in progress.
  * @property {Function} login Login the user.
  * @property {Function} logout Logout the user.
  * @property {Function} register Register a new user.
+ * @property {Function} resetPassword Reset the user password.
  * @property {Function} verify Verify a user.
  */
 

@@ -19,6 +19,7 @@
       "@fline/base": ["libs/base/src/index.js"],
       "@fline/hooks": ["libs/hooks/src/index.js"],
       "@fline/mailer": ["libs/mailer/src/index.js"],
+      "@fline/reset-token": ["libs/reset-token/src/index.js"],
       "@fline/security": ["libs/security/src/index.js"],
       "@fline/sequelize": ["libs/sequelize/src/index.js"],
       "@fline/ui": ["libs/ui/src/index.js"],

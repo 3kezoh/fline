@@ -9,6 +9,7 @@
     "fline-e2e": "apps/fline-e2e",
     "hooks": "libs/hooks",
     "mailer": "libs/mailer",
+    "reset-token": "libs/reset-token",
     "security": "libs/security",
     "sequelize": "libs/sequelize",
     "ui": "libs/ui",

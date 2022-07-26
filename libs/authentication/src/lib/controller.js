@@ -46,7 +46,7 @@ export async function register(req, res, next) {
     await sendMail({
       to: user.email,
       subject: 'Welcome to Fline !',
-      html: `<p>To verify your account, please click on this link : ${verifyTokenURL.href}</p>`,
+      html: `<p>To verify your account, please click <a href="${verifyTokenURL.href}">here</a></p>`,
     });
 
     return res.status(201).json(user);
@@ -150,7 +150,7 @@ export async function resetPassword(req, res, next) {
     await sendMail({
       to: user.email,
       subject: 'Reset your password',
-      html: `<p>To change your password, please click this link : ${resetTokenURL.href}</p>
+      html: `<p>To change your password, please click <a href="${resetTokenURL.href}">here</a></p>
       <p>It will expire in ${process.env.RESET_PASSWORD_EXPIRATION_IN_MINUTES} minutes.</p>`,
     });
 

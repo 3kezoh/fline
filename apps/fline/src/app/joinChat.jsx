@@ -1,9 +1,10 @@
 import { useAuthentication, useForm } from '@fline/hooks';
 import { Button, Grid, Input } from '@fline/ui';
 import io from 'socket.io-client';
-import { chat } from '@fline/chat';
+import { chat, getUserFirstName } from '@fline/chat';
 import { useState } from 'react';
 import Chat from './chat';
+import { authenticate } from '@fline/security';
 
 const socket = io.connect('http://localhost:3333');
 
@@ -22,7 +23,7 @@ export function JoinChat() {
 
   //recuperer le USER içi
 
-  //const user =
+  const username = getUserFirstName();
 
   //const [username, setUserName] = useState('');
   const [room, setRoom] = useState('');
@@ -54,7 +55,7 @@ export function JoinChat() {
           </Grid>
         </div>
       ) : (
-        <Chat room={room} socket={socket} />
+        <Chat room={room} socket={socket} username={username} />
       )}
     </div>
   );

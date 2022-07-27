@@ -61,15 +61,15 @@ const server = app.listen(port, () => {
 app.use(chatRouter);
 
 const io = new Server(server, {
-  cors: { origin: 'http://localhost:4200', methods: ['GET,POST'] },
+  cors: { origin: 'http://localhost:4200/chat', methods: ['GET,POST'] },
 });
 
 io.on('connection', (socket) => {
-  console.log(`Oh ${socket.id} est apparue dans la jungle.`);
+  console.log(`Oh ${socket.firstname} est apparue dans la jungle.`);
 
   socket.on('join_room', (data) => {
     socket.join(data);
-    console.log(`Oh ${socket.id} à rejoin la room ${data}.`);
+    console.log(`Oh 🔵 ${socket.firstname} à rejoin la room ${data}.`);
   });
 
   socket.on('send_message', (data) => {
@@ -78,8 +78,27 @@ io.on('connection', (socket) => {
   });
 
   socket.on('disconnect', () => {
-    console.log(`Oh ${socket.id} a disparue dans les nuages.`);
+    console.log(`Oh 🔴 ${socket.firstname} a disparue dans les nuages.`);
   });
 });
+
+/*
+io.sockets.on('connection', function(socket) {
+  socket.on('username', function(username) {
+      socket.username = username;
+      io.emit('is_online', '🔵 <i>' + socket.username + ' join the chat..</i>');
+  });
+
+  socket.on('disconnect', function(username) {
+      io.emit('is_online', '🔴 <i>' + socket.username + ' left the chat..</i>');
+  })
+
+  socket.on('chat_message', function(message) {
+      io.emit('chat_message', '<strong>' + socket.username + '</strong>: ' + message);
+  });
+  
+
+});
+*/
 
 server.on('error', console.error);

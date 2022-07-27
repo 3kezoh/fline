@@ -2,6 +2,7 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "administrator": "libs/administrator",
     "api": "apps/api",
     "authentication": "libs/authentication",
     "base": "libs/base",
@@ -9,6 +10,7 @@
     "fline-e2e": "apps/fline-e2e",
     "hooks": "libs/hooks",
     "mailer": "libs/mailer",
+    "profile": "libs/profile",
     "security": "libs/security",
     "sequelize": "libs/sequelize",
     "ui": "libs/ui",

@@ -6,6 +6,8 @@
 import * as express from 'express';
 import { sequelize } from '@fline/sequelize';
 import { authenticationRouter } from '@fline/authentication';
+import { administratorRouter } from '@fline/administrator';
+import { profileRouter } from '@fline/profile';
 import { authenticate, checkUserIsVerified } from '@fline/security';
 import * as cors from 'cors';
 import * as path from 'path';
@@ -73,6 +75,8 @@ app.get('*', (_req, res) => {
 
 const port = process.env.PORT || 3333;
 
+app.use(profileRouter);
+app.use(administratorRouter);
 const server = app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}/api`);
 });

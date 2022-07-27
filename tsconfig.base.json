@@ -15,10 +15,12 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@fline/administrator": ["libs/administrator/src/index.js"],
       "@fline/authentication": ["libs/authentication/src/index.js"],
       "@fline/base": ["libs/base/src/index.js"],
       "@fline/hooks": ["libs/hooks/src/index.js"],
       "@fline/mailer": ["libs/mailer/src/index.js"],
+      "@fline/profile": ["libs/profile/src/index.js"],
       "@fline/security": ["libs/security/src/index.js"],
       "@fline/sequelize": ["libs/sequelize/src/index.js"],
       "@fline/ui": ["libs/ui/src/index.js"],
